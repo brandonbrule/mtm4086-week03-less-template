@@ -1,17 +1,22 @@
+/* -- Variables -- */
+@font-stack : Helvetica, sans-serif;
+@primary-color : #6B8349;
+@secondary-color : #FCA055;
+@tertiary-color : #E6E2A2;
+
 /* -- Mixins -- */
 .clearfix() {
   zoom: 1;
   &:before { content: ''; display: block; }
   &:after { content: ''; display: table; clear: both; }
 }
-
 .test(){
 	outline:1px solid red;
 }
 
 
-body{ }
-
+/* -- Baseline Styles -- */
+body { font-family: @font-stack; margin:0;}
 /* -- Banner Components -- */
 .banner{
 	height:300px;
@@ -21,15 +26,31 @@ body{ }
 
 /* -- Navigation components -- */
 .main-nav{
-	ul{ padding:0; margin:0; }
-	li{ margin-top:1em; }
-	li:first-child{ margin-top:0; }
-	a{ display:block; background:#ececec; padding:1em; text-align:center; }
+	ul{ 
+		padding:0; 
+		margin:0; 
+	}
+	li{ 
+		margin-top:1em; 
+		&:first-child{ margin-top:0; }
+	}
+	a{ 
+		display:block; 
+		background:#ececec; 
+		padding:1em; 
+		text-align:center; 
+	}
 	
 	@media (min-width:40em){
-		ul { .clearfix(); }
-		li { float:left; margin-left:1em; margin-top:0; }
-		li:first-child{ margin-left:0; }
+		ul { 
+		.clearfix(); 
+		}
+		li { 
+			float:left; 
+			margin-left:1em; 
+			margin-top:0; 
+			&:first-child{ margin-left:0; }
+		}
 		a{ padding:0.5em 1em; text-align:left; }	
 	}
 }
@@ -52,24 +73,27 @@ body{ }
 	.test();
 }
 .col{
-	margin-top:1em;
-	padding-top:1em;
-	border-top:1px solid blue;
-	min-height:200px;
+	margin-top: 1em;
+	padding-top: 1em;
+	border-top: 1px solid #333;
+	min-height: 200px;
 	&:first-child{ margin-top:0; padding-top:0; border:none; }
 	
 	@media (min-width:40em){
-		float:left;	
-		margin-top:0;
-		padding-top:0;
-		border:none;
+		float: left;	
+		margin-top: 0;
+		padding-top: 0;
+		border: none;
 	}
 }
 
-.col-1{ background:purple; width:100%; }
+.col-1{ 
+	background: @primary-color; 
+	width:100%; 
+}
 
 .col-2{
-	background:orange;
+	background: @secondary-color;
 	@media (min-width:40em){
 		width:48.75%;
 		margin-left:2.5%;
@@ -78,7 +102,7 @@ body{ }
 }
 
 .col-3{
-	background:blue;
+	background: @tertiary-color;
 	@media (min-width:40em){
 		width:32%;
 		margin-left:2%;
